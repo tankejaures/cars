@@ -15,15 +15,21 @@ export class MyCars extends Component {
     const updateState = this.state.cars.map((c) => {
       return (c.year -= 10);
     });
-    console.log(updateState);
+
     this.setState({
       updateState,
     });
   };
 
+  getAge = (year, nowYear) => {
+    const age = nowYear - year;
+
+    return age + " an" + (age > 1 ? "s" : "");
+  };
+
   render() {
     const { title, color } = this.props;
-    const year = new Date().getFullYear();
+    const nowYear = new Date().getFullYear();
 
     return (
       <div>
@@ -31,8 +37,13 @@ export class MyCars extends Component {
 
         <button onClick={this.addTenYear}> +10 ans </button>
 
-        {this.state.cars.map((c, k) => (
-          <Car name={c.name} year={year - c.year + " ans"} color={c.color} key={k}/>
+        {this.state.cars.map(({ name, color, year }, k) => (
+          <Car
+            name={name}
+            year={this.getAge(year, nowYear)}
+            color={color}
+            key={k}
+          />
         ))}
       </div>
     );
