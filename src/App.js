@@ -1,6 +1,6 @@
 import "./App.css";
 import { Component } from "react";
-import { Maman } from "./components/Maman";
+import  Maman  from "./components/Maman";
 
 class App extends Component {
 

@@ -1,13 +1,17 @@
-export const Toto = (props) => {
+const Toto = (props) => {
   return (
     <div>
       <h2>{props.name}</h2>
-      {props.leState.messageMaman !== null ? (
-        <button onClick={props.response}>Réponse</button>
-      ) : (
-        <button disabled>Réponse</button>
-      )}
+      <button
+        disabled={props.leState.disabled}
+        onClick={()=>props.reponseTotoProps("Non, je veux regarder la télé")}
+      >
+        Réponse
+      </button>
+
       <p>{props.leState.messageToto}</p>
     </div>
   );
 };
+
+export default Toto;
