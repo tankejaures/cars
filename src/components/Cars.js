@@ -1,20 +1,18 @@
-import { Wrapper } from "./Wrapper";
-
 const Car = ({ name, color, year }) => {
   return (
-    <Wrapper>
+    <>
       {name ? (
-        <div>
-          <p>Marque : {name} </p>
-          <p>Âge : {year} </p>
-          {color ? <p>Couleur: {color}</p> : <p>Couleur : Néant</p>}
-        </div>
+        <tr>
+          <td>{name} </td>
+          <td>{year} </td>
+          <td>{color ?? 'Néant'}</td> 
+        </tr>
       ) : (
-        <div>
-          <p>Pas de data !</p>
-        </div>
+        <tr>
+          <td colSpan="3">Pas de data !</td>
+        </tr>
       )}
-    </Wrapper>
+    </>
   );
 };
 
