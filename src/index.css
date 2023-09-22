@@ -37,12 +37,12 @@ h1.styled {
   font-weight: bold;
 }
 
-.App {
+/* .App {
   height: 400px;
   width: 200px;
   background: lightblue;
   position: relative;
-}
+} */
 
 .modal {
   position: absolute;
@@ -62,4 +62,9 @@ h1.styled {
   padding: 20px;
   min-height: 200px;
   border-radius: 10px;
+}
+
+
+input:focus{
+  background-color: yellow;
 }
