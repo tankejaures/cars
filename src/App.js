@@ -1,25 +1,31 @@
 import "./App.css";
 import { Component } from "react";
-import ParentComponent from "./components/ParentComponent";
+import ModalComponent from "./components/ModalComponent";
 
 class App extends Component {
 
   state = {
-    age: 27
+    showModal: false
   }
 
-  addOneYear = () => {
-    this.setState((prevState) => ({
-      age: prevState.age+1
-    }))
+  handleShowModal = () => {
+    this.setState({
+      showModal: true
+    })
+  }
+
+  handleHideModal = () => {
+    this.setState({
+      showModal: false
+    })
   }
 
   render() {
+    const modal = this.state.showModal && <ModalComponent close={this.handleHideModal} />;
     return (
       <div className="App">
-        <ParentComponent age={this.state.age} />
-
-        <button onClick={this.addOneYear}>Changer le props</button>
+        <button onClick={this.handleShowModal}>Afficher le modal</button>
+        {modal}
       </div>
     );
   }
