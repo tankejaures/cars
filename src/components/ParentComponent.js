@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import FunctionComp from './FunctionComp';
 import PureComp from './PureComponent';
 import SimpleComponent from './SimpleComponent';
 
@@ -11,19 +12,6 @@ class ParentComponent extends Component {
             name: "Spiderman"
         }
     }
-
-    /* static getDerivedStateFromProps(props, state) {
-        console.log("%c getDerivedStateFromProps lancée ", "color: red;background:yellow;font-size: 15px;");
-
-        console.log(props, state)
-        return null;
-    } */
-
-    /*  forceChange = () => {
-         this.forceUpdate(() => {
-             console.log("je force le changement")
-         })
-     } */
 
     changeToBatman = () => {
         this.setState({
@@ -46,8 +34,13 @@ class ParentComponent extends Component {
         console.log("%c Render() du composant parent", 'color:red;')
         return (
             <div>
+                <p><span className="red"> ParentComponent : </span>{this.state.name}</p>
+
                 <SimpleComponent name={this.state.name} />
+
                 <PureComp name={this.state.name} />
+
+                <FunctionComp name={this.state.name} />
 
                 <button onClick={this.changeToBatman}>Changer en Batman</button>
             </div>

@@ -6,7 +6,9 @@ class PureComp extends PureComponent {
         console.log('%c render() du PureComposant enfant Simple', 'color:green;');
         return (
             <div>
-                Pure Component
+                <p>
+                    <span className="green">PureComponent : </span>{this.props.name}
+                </p>
             </div>
         )
     }
