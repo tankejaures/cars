@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
-import vegetaImg from '../vegeta.png';
+import freezaImg from '../freeza.png';
 import handleClicks from './handleClicks';
 
-export class Vegeta extends Component {
+export class Freeza extends Component {
     render() {
         const {clickHandler, bg} = this.props;
         return (
             <div className={`col ${bg}`}>
-                <img onClick={clickHandler} height={350} src={vegetaImg} alt='Vegeta' />
+                <img onClick={clickHandler} height={350} src={freezaImg} alt='Freeza' />
             </div>
         )
     }
 }
 
-export default handleClicks(Vegeta);
+export default handleClicks(Freeza, 'danger');
