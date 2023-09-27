@@ -3,6 +3,9 @@ import vegetaImg from '../vegeta.png';
 import countHits from './CountHits';
 
 export class Vegeta extends Component {
+    state={
+        saiyan: true
+    }
 
     render() {
         const { name, addOneHit, hocState, life } = this.props,
@@ -15,7 +18,7 @@ export class Vegeta extends Component {
                 <br />
 
                 <button disabled={!lifeStatus} onClick={addOneHit} className={'btn btn-' + (lifeStatus ? 'success' : 'danger') + ' mb-3'}>
-                    {lifeStatus ? name + ' Frappe' : 'Mort'}
+                    {lifeStatus ? name(this.state.saiyan) + ' Frappe' : 'Mort'}
                 </button>
 
                 <hr />

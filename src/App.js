@@ -33,7 +33,7 @@ class App extends Component {
         <hr />
 
         <div className="row">
-          <Vegeta name="Vegeta" life={this.state.vegeta} reduceHandler={this.reduceLife} />
+          <Vegeta name={(saiyan) => saiyan ? 'Vegeta' : ''} life={this.state.vegeta} reduceHandler={this.reduceLife} />
           <Goku name='Goku' life={this.state.goku} reduceHandler={this.reduceLife} />
         </div>
       </div>
