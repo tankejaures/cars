@@ -1,42 +1,41 @@
 import "./App.css";
 import { Component } from "react";
-import Vegeta from "./components/Vegeta";
-import Goku from "./components/Goku";
+import Docs from "./components/Docs";
+import Tutorials from "./components/Tutorials";
+import Community from "./components/Community";
+import Menu from "./components/Menu";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import ErrorPage from "./components/ErrorPage";
 
 class App extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      vegeta: 100,
-      goku: 100
+      underConst: {
+        Docs: false,
+        Tutorials: true,
+        Community: false
+      }
     }
   }
-
-  reduceLife = (param, power) => {
-    if (param === 'Goku') {
-      this.setState({
-        vegeta: this.state.vegeta - power
-      })
-    } else {
-      this.setState({
-        goku: this.state.goku - power
-      })
-    }
-  }
-
   render() {
     return (
-      <div className="container text-center">
-        <h1>Goku vs Vegeta</h1>
+      <BrowserRouter>
+        <Menu />
 
-        <hr />
+        <Switch>
+          <Route exact path="/" component={Docs} />
+          <Route path="/tutorial" component={Tutorials} />
 
-        <div className="row">
-          <Vegeta name={(saiyan) => saiyan ? 'Vegeta' : ''} life={this.state.vegeta} reduceHandler={this.reduceLife} />
-          <Goku name='Goku' life={this.state.goku} reduceHandler={this.reduceLife} />
-        </div>
-      </div>
+          {/* <Route path="/tutorial" render={() => (
+            this.state.underConst.Tutorials ? (<Redirect to="/" />) : (<Tutorials />)
+          )} /> */}
+          <Route strict path="/community" component={Community} />
+
+          <Route component={ErrorPage} />
+        </Switch>
+      </BrowserRouter>
     );
   }
 }
